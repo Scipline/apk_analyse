@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """
-遇到编码问题，改用subprocess，参考：https://blog.csdn.net/u012871930/article/details/128022910
-# 代码借鉴自https://blog.csdn.net/h1986y/article/details/123737172 和https://github.com/omieo2/apk_toolbox
 # androguard开源库：https://github.com/androguard/androguard
 # aapt工具使用介绍：https://juejin.cn/post/7075594597505695758
 # aapt2工具文档：https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#dump_commands
+# 代码参考：
+https://blog.csdn.net/h1986y/article/details/123737172
+https://github.com/omieo2/apk_toolbox
+# 遇到编码问题，改用subprocess，参考：https://blog.csdn.net/u012871930/article/details/128022910
 """
 import datetime
 import getopt
@@ -70,7 +72,12 @@ class Common:
                 print("-d或--dirs的参数错误，请输入一个目录路径")
                 return
         elif "-r" in opts or "--rename" in opts:
-            # self.rename2md5(opts.get('-r', opts.get("--rename"))
+            dirs = opts.get('-r', opts.get("--rename"))
+            if os.path.isdir(dirs):
+                self.rename(dirs)
+            else:
+                print("-r或--rename的参数错误，请输入一个目录路径")
+                return
             return
         apk_path = " ".join(args)
         if apk_path.endswith('.apk') and os.path.isfile(apk_path):
@@ -93,7 +100,7 @@ class Common:
             xxx.apk             获取apk信息
             -t, --type:         处理引擎A or B(默认A)
             -d, --dirs:         获取目录下所有apk信息
-            -r, --rename:       MD5批量重命名目录下apk
+            -r, --rename:       批量格式化重命名apk
             -v, --version:      版本号
             -h, --help:         帮助信息
             —————————————————————————————
@@ -128,48 +135,50 @@ B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android
 
         return cert_md5
 
-    def rename_apk(self, i):
-        """
+    # def rename_apk(self, i):
+    #     """
+    #
+    #     :param i:
+    #     :return:
+    #     """
+    #     index_filename = str(i) + '.apk'
+    #     apk_path = os.path.join(download_dir, index_filename)
+    #     apk_md5 = self.get_file_md5(apk_path)
+    #     apk_file = apk_md5 + '.apk'
+    #     new_name = os.path.join(download_dir, apk_file)
+    #
+    #     if not os.path.exists(new_name):
+    #         os.rename(apk_path, new_name)
+    #     else:
+    #         os.remove(apk_path)
+    #
+    #     return apk_file
 
-        :param i:
-        :return:
-        """
-        index_filename = str(i) + '.apk'
-        apk_path = os.path.join(download_dir, index_filename)
-        apk_md5 = self.get_file_md5(apk_path)
-        apk_file = apk_md5 + '.apk'
-        new_name = os.path.join(download_dir, apk_file)
-
-        if not os.path.exists(new_name):
-            os.rename(apk_path, new_name)
-        else:
-            os.remove(apk_path)
-
-        return apk_file
-
-    def rename2md5(self, path):
+    def rename(self, path):
         """
 
         :param path:
         :return:
         """
         start = time.time()
-        if os.path.isdir(path):
-            for root, dirs, files in os.walk(path):
-                for i in range(len(files)):
-                    old_name = os.path.join(os.getcwd(), path, files[i])
-                    md5 = self.get_file_md5(old_name)
-                    new_name = os.path.join(os.getcwd(), path, md5 + '.apk')
-                    print('%s ->> %s' % (files[i] + '.apk', md5 + '.apk'))
+
+        for root, dirs, files in os.walk(path):
+            for i in range(len(files)):
+                old_name = os.path.abspath(os.path.join(root, files[i]))
+                if old_name.endswith(".apk"):
+                    apk = APK(old_name)
+                    apk_name = apk.get_app_name()
+                    apk_versionname = apk.get_androidversion_name()
+                    del apk
+                    new_name = os.path.join(os.path.split(old_name)[0], apk_name + "_" + apk_versionname + '.apk')
+                    print('%s ->> %s' % (files[i], apk_name + "_" + apk_versionname + '.apk'))
                     try:
                         os.rename(old_name, new_name)
                     except FileExistsError as err:
                         print(err)
-                        # 当有相同md5文件时执行去重操作
+                        # 当有相同名称文件时执行去重操作
                         os.remove(old_name)
-                print('\nTotal info:\n已对%d个文件进行重命名\t耗时%.2fs' % (len(files), time.time() - start))
-        else:
-            print('输入路径不是目录，请检查...\n%s' % path)
+            print('\nTotal info:\n已对%d个文件进行重命名\t耗时%.2fs' % (len(files), time.time() - start))
 
 
 class WriteData:
@@ -280,6 +289,7 @@ class AndroGuard:
                 apk_info.append(Common().get_cert_md5(apk))
                 icon_path = os.path.join(download_dir, f"{apk_name}_icon.png")
                 icon = apk.get_file(apk.get_app_icon(max_dpi=480))
+                del apk
                 with open(icon_path, "wb") as f:
                     f.write(icon)
                 if imghdr.what(icon_path) not in imgType_list:
@@ -372,7 +382,7 @@ class Aapt:
             elif l.startswith("targetSdkVersion"):
                 targetSdkVersion = l.split(":'")[1]
             elif l.startswith("native-code"):
-                ABIs = l.split(":")[1].replace("'","").strip()
+                ABIs = l.split(":")[1].replace("'", "").strip()
 
         self.getIconFromXml(apk_path, xml)
         file_md5 = Common().get_file_md5(apk_path)
