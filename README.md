@@ -10,11 +10,11 @@
 - 批量格式化重命名APK
 
 ### 三. 实现思路
-- 1.**Common**类处理输入指令，通用处理方法
+- **Common**类处理输入指令，通用处理方法
 
-- 2.**WriteData**类写入数据到Excel文件
+- **WriteData**类写入数据到Excel文件
 
-- 3.**AndroGuard**和**Aapt**类分别两个解析方式
+- **AndroGuard**和**Aapt**类分别两个解析方式
 
 ### 四. 使用说明
 配置好python3，通过命令`pip install -r requirements.txt`安装所需的库。
@@ -60,15 +60,23 @@ python apk_analyse.py -r App
 
 ### 五. 注意
 
-- A引擎为androguard_v3.3.6-2022年11月20日，理论最高支持API29，Android10.0[https://pypi.org/project/androguard][https://github.com/androguard/androguard]
-- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0）[https://androidaapt.com],可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格''')
+- A引擎为androguard_v3.3.6-2022年11月20日，理论最高支持API29，Android10.0 【https://androidaapt.com】
+- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。【https://androidaapt.com】,可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格
 
 ### 六. 参考文献
 
 > androguard开源库：https://github.com/androguard/androguard
+>
 > aapt工具使用介绍：https://juejin.cn/post/7075594597505695758
+>
 > aapt2工具文档：https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#dump_commands
+>
 > 代码参考：
+>
 > https://blog.csdn.net/h1986y/article/details/123737172 
+>
 > https://github.com/omieo2/apk_toolbox
+>
 > 遇到编码问题，改用subprocess，参考：https://blog.csdn.net/u012871930/article/details/128022910
+
+[https://github.com/androguard/androguard]: 
