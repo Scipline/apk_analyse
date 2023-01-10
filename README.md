@@ -2,7 +2,7 @@
 
 ### 一. 前言
 
-有很多诸如`apk_release.apk`，`base.apk`等在PC上无法直接知悉其信息的APK文件，除非必要安装到手机。为了有效管理APK文件，知悉APK详情，对比版本更新，急于在PC上找一个工具可以获取APK简略信息及其图标icon信息，用于管理APK文件。但无奈在找不到一个可行PC的工具。有如[apk-info](https://github.com/Enyby/APK-Info)（加载信息过多，缓慢，无法导出信息，图标，不支持批量），[APK Messenger v4.3](https://www.ghxi.com/apkinfo.html)(果核网站开发，年久失修，新API的apk功能失效)，[APK Messenger复刻版](https://github.com/ghboke/APKMessenger)(同上)。可能还有很多优秀的工具未经发现，但目前实在找不到，于是自己结合网上前辈经验开发一个。
+有很多诸如`apk_release.apk`，`base.apk`等在PC上无法直接知悉其信息的APK文件，除非必要安装到手机。为了有效管理APK文件，知悉APK详情，对比版本更新，急于在PC上找一个工具可以获取APK简略信息及其图标icon信息，用于管理APK文件。但无奈在找不到一个可行PC的工具。有如[apk-info](https://github.com/Enyby/APK-Info)（加载信息过多，缓慢，无法导出信息，图标，不支持批量），[APK Messenger v4.3](https://www.ghxi.com/apkinfo.html)(果核网站开发，年久失修，新API的apk功能失效)，[APK Messenger复刻版](https://github.com/ghboke/APKMessenger)(同上)。可能还有很多优秀的工具未经发现，但目前实在找不到，于是自己结合网上前辈经验开发一个。 
 
 ### 二. 功能点
 - 批量解析ICON
