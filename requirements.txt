@@ -1,0 +1,6 @@
+androguard
+openpyxl
+lxml
+requests
+loguru
+mutf8
