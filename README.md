@@ -1,4 +1,4 @@
-![forks: 0](https://badgen.net/github/forks/Scipline/apk_analyse?labelColor=black&color=orange)![](https://badgen.net/github/stars/Scipline/apk_analyse?labelColor=black&color=pink)![commits: 2](https://badgen.net/github/commits/Scipline/apk_analyse)![](https://badgen.net/github/release/Scipline/apk_analyse)![GitHub language count](https://img.shields.io/github/languages/count/Scipline/apk_analyse?labelColor=abcdef&style=flat&color=brightgreen)![GitHub top language](https://img.shields.io/github/languages/top/Scipline/apk_analyse?style=flat&labelColor=4a2206&color=ab2415)
+![forks: 0](https://badgen.net/github/forks/Scipline/apk_analyse?labelColor=black&color=orange)	![](https://badgen.net/github/stars/Scipline/apk_analyse?labelColor=black&color=pink)	![commits: 2](https://badgen.net/github/commits/Scipline/apk_analyse)	![](https://badgen.net/github/release/Scipline/apk_analyse)	![GitHub language count](https://img.shields.io/github/languages/count/Scipline/apk_analyse?labelColor=abcdef&style=flat&color=brightgreen)	![GitHub top language](https://img.shields.io/github/languages/top/Scipline/apk_analyse?style=flat&labelColor=4a2206&color=ab2415)
 
 ### 一. 前言
 
@@ -61,7 +61,7 @@ python apk_analyse.py -r App
 ### 五. 注意
 
 - A引擎为androguard_v3.3.6-2022年11月20日，理论最高支持API29，Android10.0 【https://androidaapt.com】
-- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。【https://androidaapt.com】,可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格
+- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格。【https://androidaapt.com】
 
 ### 六. 参考文献
 
@@ -78,5 +78,3 @@ python apk_analyse.py -r App
 > https://github.com/omieo2/apk_toolbox
 >
 > 遇到编码问题，改用subprocess，参考：https://blog.csdn.net/u012871930/article/details/128022910
-
-[https://github.com/androguard/androguard]: 
