@@ -66,16 +66,16 @@ python apk_analyse.py -r App
 
 ### 六. 参考文献
 
-> androguard开源库：https://github.com/androguard/androguard
+> androguard开源库：[https://github.com/androguard/androguard](https://github.com/androguard/androguard)
 >
-> aapt工具使用介绍：https://juejin.cn/post/7075594597505695758
+> aapt工具使用介绍：[https://juejin.cn/post/7075594597505695758](https://juejin.cn/post/7075594597505695758)
 >
-> aapt2工具文档：https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#dump_commands
+> aapt2工具文档：[https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#dump_commands](https://developer.android.google.cn/studio/command-line/aapt2?hl=zh-cn#dump_commands)
 >
 > 代码参考：
 >
-> https://blog.csdn.net/h1986y/article/details/123737172 
+> [https://blog.csdn.net/h1986y/article/details/123737172](https://blog.csdn.net/h1986y/article/details/123737172) 
 >
-> https://github.com/omieo2/apk_toolbox
+> [https://github.com/omieo2/apk_toolbox](https://github.com/omieo2/apk_toolbox)
 >
-> 遇到编码问题，改用subprocess，参考：https://blog.csdn.net/u012871930/article/details/128022910
+> 遇到编码问题，改用subprocess，参考：[https://blog.csdn.net/u012871930/article/details/128022910](https://blog.csdn.net/u012871930/article/details/128022910)
