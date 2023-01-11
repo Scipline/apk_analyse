@@ -65,8 +65,10 @@ python apk_analyse.py -r App
 - B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格。【[https://androidaapt.com](https://androidaapt.com)】
 
 - 目前所用的androguard版本从Github上获取，2022年11月20日，理论最高支持API29，Android10.0【[https://github.com/androguard/androguard](https://github.com/androguard/androguard)】。自己稍加修改，去除了未发行版本带有的所有debug信息，原3.3.5版使用方法：`from androguard.core.bytecodes.apk import APK`。新版使用方法`from androguard.core.apk import APK`。还需要`loguru`，`mutf8`两个库
+  
   原版输出信息：
   ![Snipaste_2023-01-09_19-54-12](https://i2.100024.xyz/2023/01/11/12jkp4p.webp)
+
 
   ![Snipaste_2023-01-09_20-13-21](https://i2.100024.xyz/2023/01/11/12jtjqk.webp)
 
