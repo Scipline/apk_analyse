@@ -60,9 +60,9 @@ python apk_analyse.py -r App
 
 ### 五. 注意
 
-- A引擎为androguard_v3.3.5-2019年2月18日，理论最高支持API28，Android9.0 【https://pypi.org/project/androguard】
-- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格。【https://androidaapt.com】
-- 目前所用的androguard版本从Github上获取，2022年11月20日，理论最高支持API29，Android10.0【https://github.com/androguard/androguard】。去除了未发行版本带有的所有debug信息，新版使用方法`from androguard.core.apk import APK`。原3.3.5版为`from androguard.core.bytecodes.apk import APK`
+- A引擎为androguard_v3.3.5-2019年2月18日，理论最高支持API28，Android9.0 【[https://pypi.org/project/androguard](https://pypi.org/project/androguard)】
+- B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android7.0。可解析A引擎获取不到图标，需要额外调用，导致apk名称不能有空格。【[https://androidaapt.com](https://androidaapt.com)】
+- 目前所用的androguard版本从Github上获取，2022年11月20日，理论最高支持API29，Android10.0【[https://github.com/androguard/androguard](https://github.com/androguard/androguard)】。去除了未发行版本带有的所有debug信息，新版使用方法`from androguard.core.apk import APK`。原3.3.5版为`from androguard.core.bytecodes.apk import APK`
 
 ### 六. 参考文献
 
