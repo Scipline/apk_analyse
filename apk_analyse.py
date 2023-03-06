@@ -161,6 +161,7 @@ B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android
                         # 当有相同名称文件时执行去重操作
                         os.remove(old_name)
             print('\nTotal info:\n已对%d个文件进行重命名\t耗时%.2fs' % (count, time.time() - start))
+            count=0
 
 
 class WriteData:
