@@ -151,6 +151,9 @@ B引擎为aapt_v0.2-4913185-2018年8月10日，理论最高支持API24，Android
                     apk_name = apk.get_app_name()
                     apk_versionname = apk.get_androidversion_name()
                     del apk
+                    new_name=apk_name+"_"+apk_versionname+".apk"
+                    if str(new_name)==str(files[i]):
+                        continue
                     new_name = os.path.join(os.path.split(old_name)[0], apk_name + "_" + apk_versionname + '.apk')
                     print('%s ->> %s' % (files[i], apk_name + "_" + apk_versionname + '.apk'))
                     try:
